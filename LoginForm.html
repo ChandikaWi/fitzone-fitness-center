@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Log in to your FitZone Fitness Center account to access your fitness journey in Kurunegala, Sri Lanka.">
+    <title>Login - FitZone Fitness Center</title>
+    <link rel="icon" type="image/jpeg" href="Pictures/WebIcon1.jpeg">
+    <link rel="stylesheet" href="LoginForm.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="light-theme">
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle between light and dark theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="logo">
+                <h1>Fit<span class="accent">Zone</span></h1>
+                <p class="tagline">Transform Your Life</p>
+            </div>
+            
+            <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+                <button class="nav-close" id="navClose" aria-label="Close navigation">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="./Home.html" class="nav-link">Home</a></li>
+                    <li><a href="./Program.html" class="nav-link">Programs</a></li>
+                    <li><a href="./Membership.html" class="nav-link">Membership</a></li>
+                    <li><a href="./Timetable.html" class="nav-link">Timetable</a></li>
+                    <li><a href="./Trainers.html" class="nav-link">Trainers</a></li>
+                    <li><a href="./Aboutus.html" class="nav-link">About Us</a></li>
+                    <li><a href="http://localhost/MyProject/Contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="http://localhost/MyProject/LoginForm.html" class="nav-link active" aria-current="page">Login</a></li>
+                    <li><a href="http://localhost/MyProject/CustomerReg.html" class="nav-link">Register</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="search-toggle" id="searchToggle" aria-label="Toggle search bar" aria-expanded="false">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container" id="searchContainer" role="search">
+        <div class="search-wrapper">
+            <label for="searchInput" class="visually-hidden">Search for programs, trainers, or login</label>
+            <input type="text" id="searchInput" placeholder="Search for programs, trainers, login...">
+            <button class="search-btn" onclick="searchWebsite()" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main role="main">
+        <section class="hero" id="login">
+            <div class="hero-background"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="gradient-text">WELCOME</span>
+                            <br>BACK
+                        </h1>
+                        <p class="hero-subtitle">Log in to continue your fitness journey with FitZone Fitness Center!</p>
+                        <div class="hero-buttons">
+                            <a href="#login-form" class="btn btn-primary">
+                                <i class="fas fa-sign-in-alt"></i> Login Now
+                            </a>
+                            <a href="http://localhost/MyProject/CustomerReg.html" class="btn btn-secondary">
+                                <i class="fas fa-user-plus"></i> New? Register Here
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="login-form" id="login-form">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Access Your <span class="gradient-text">Account</span></h2>
+                    <p class="section-subtitle">Log in as an admin, customer, or staff member to access FitZone services.</p>
+                    <p class="policy-links">Review our <a href="./PrivacyPolicy.html">Privacy Policy</a>, <a href="./TermsOfService.html">Terms of Service</a>, and <a href="./CookiePolicy.html">Cookie Policy</a>.</p>
+                </div>
+                <div class="form-container">
+                    <form action="login.php" method="POST" id="loginForm">
+                        <div class="form-group">
+                            <label for="user-type">User Type</label>
+                            <select name="user-type" id="user-type" required aria-describedby="user-type-error">
+                                <option value="" disabled selected>Select User Type</option>
+                                <option value="admin">Admin</option>
+                                <option value="customer">Customer</option>
+                                <option value="staff">Staff</option>
+                            </select>
+                            <span class="error-message" id="user-type-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" placeholder="Your Username" required aria-describedby="username-error">
+                            <span class="error-message" id="username-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Your Password" required aria-describedby="password-error">
+                            <span class="error-message" id="password-error"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <p class="form-message" id="formMessage"></p>
+                        <p class="register-link">New Customer? <a href="http://localhost/MyProject/CustomerReg.html">Register</a></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <h3>Fit<span class="accent">Zone</span></h3>
+                        <p class="brand-tagline">Where Champions Are Made</p>
+                        <p class="brand-description">Transform your body, elevate your mind, and unleash your potential at FitZone - the ultimate destination for serious fitness enthusiasts.</p>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+94 77 123 4567</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>info@fitzone.lk</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Kurunegala, Sri Lanka</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="./Home.html">Home</a></li>
+                        <li><a href="./Program.html">Programs</a></li>
+                        <li><a href="./Membership.html">Membership</a></li>
+                        <li><a href="./Timetable.html">Timetable</a></li>
+                        <li><a href="./Trainers.html">Trainers</a></li>
+                        <li><a href="./Aboutus.html">About Us</a></li>
+                        <li><a href="http://localhost/MyProject/Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Programs</h4>
+                    <ul class="footer-links">
+                        <li><a href="./Program.html#fitness-program">Fitness Program</a></li>
+                        <li><a href="./Program.html#personalized-training">Personalized Training</a></li>
+                        <li><a href="./Program.html#group-classes">Group Classes</a></li>
+                        <li><a href="./Program.html#nutrition-counseling">Nutrition Counseling</a></li>
+                        <li><a href="./Program.html#cardio-yoga">Cardio & Yoga</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Opening Hours</h4>
+                    <div class="opening-hours">
+                        <div class="hours-item">
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">5:00 AM - 11:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Saturday</span>
+                            <span class="time">6:00 AM - 10:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Sunday</span>
+                            <span class="time">7:00 AM - 9:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-features">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h5>Sanitized & Safe</h5>
+                        <p>Health protocols maintained</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h5>Certified Trainers</h5>
+                        <p>Expert fitness professionals</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h5>Premium Equipment</h5>
+                        <p>State-of-the-art machines</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h5>Flexible Hours</h5>
+                        <p>Extended daily access</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 FitZone Fitness Center. All Rights Reserved.</p>
+                    <div class="footer-legal">
+                        <a href="PrivacyPolicy.html">Privacy Policy</a>
+                        <span class="separator">|</span>
+                        <a href="TermsOfService.html">Terms of Service</a>
+                        <span class="separator">|</span>
+                        <a href="CookiePolicy.html">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script defer>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            body.classList.toggle('light-theme');
+            localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+        }
+
+        // Mobile Navigation
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navClose = document.getElementById('navClose');
+        const nav = document.getElementById('nav');
+
+        mobileToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+            mobileToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+        });
+
+        navClose.addEventListener('click', () => {
+            nav.classList.remove('active');
+            mobileToggle.classList.remove('active');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+        });
+
+        // Search Toggle
+        const searchToggle = document.getElementById('searchToggle');
+        const searchContainer = document.getElementById('searchContainer');
+
+        searchToggle.addEventListener('click', () => {
+            searchContainer.classList.toggle('active');
+            searchToggle.setAttribute('aria-expanded', searchContainer.classList.contains('active'));
+        });
+
+        // Search Function
+        function searchWebsite() {
+            let query = document.getElementById("searchInput").value.toLowerCase().trim();
+            let pages = {
+                "home": "./Home.html",
+                "programs": "./Program.html",
+                "membership": "./Membership.html",
+                "timetable": "./Timetable.html",
+                "trainers": "./Trainers.html",
+                "about": "./Aboutus.html",
+                "contact": "./Contact.html",
+                "register": "./CustomerReg.html",
+                "login": "#login-form",
+                "privacy": "./PrivacyPolicy.html",
+                "terms": "./TermsOfService.html",
+                "cookie": "./CookiePolicy.html"
+            };
+            
+            for (let key in pages) {
+                if (query.includes(key)) {
+                    if (pages[key].startsWith('./')) {
+                        window.location.href = pages[key];
+                    } else {
+                        document.querySelector(pages[key])?.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                    return;
+                }
+            }
+            alert("No results found. Try searching for: login, register, programs, privacy, terms, or cookie.");
+        }
+
+        // Enter key search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchWebsite();
+            }
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, .form-group').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form Validation
+        const loginForm = document.getElementById('loginForm');
+        const formMessage = document.getElementById('formMessage');
+
+        loginForm.addEventListener('submit', function(e) {
+            const userType = document.getElementById('user-type').value;
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            let valid = true;
+
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+
+            // User Type validation
+            if (userType === '') {
+                document.getElementById('user-type-error').textContent = 'Please select a user type';
+                valid = false;
+            }
+
+            // Username validation
+            if (username === '') {
+                document.getElementById('username-error').textContent = 'Username cannot be empty';
+                valid = false;
+            } else if (username.length < 3) {
+                document.getElementById('username-error').textContent = 'Username must be at least 3 characters long';
+                valid = false;
+            }
+
+            // Password validation
+            if (password === '') {
+                document.getElementById('password-error').textContent = 'Password cannot be empty';
+                valid = false;
+            } else if (password.length < 5) {
+                document.getElementById('password-error').textContent = 'Password must be at least 5 characters long';
+                valid = false;
+            }
+
+            if (valid) {
+                loginForm.submit();
+            } else {
+                e.preventDefault();
+                formMessage.textContent = 'Please fix the errors above and try again.';
+                formMessage.classList.add('error');
+                formMessage.classList.remove('success');
+            }
+        });
+    </script>
+</body>
+</html>

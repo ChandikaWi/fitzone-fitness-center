@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Dashboard for FitZone Fitness Center to manage staff, inquiries, memberships, appointments, and users in Kurunegala, Sri Lanka.">
+    <title>Admin Dashboard - FitZone Fitness Center</title>
+    <link rel="icon" type="image/jpeg" href="Pictures/WebIcon1.jpeg">
+    <link rel="stylesheet" href="AdminDashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="light-theme">
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle between light and dark theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="logo">
+                <h1>Fit<span class="accent">Zone</span></h1>
+                <p class="tagline">Transform Your Life</p>
+            </div>
+            
+            <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+                <button class="nav-close" id="navClose" aria-label="Close navigation">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="./Home.html" class="nav-link">Home</a></li>
+                    <li><a href="./Program.html" class="nav-link">Programs</a></li>
+                    <li><a href="./Membership.html" class="nav-link">Membership</a></li>
+                    <li><a href="./Timetable.html" class="nav-link">Timetable</a></li>
+                    <li><a href="./Trainers.html" class="nav-link">Trainers</a></li>
+                    <li><a href="./Aboutus.html" class="nav-link">About Us</a></li>
+                    <li><a href="http://localhost/MyProject/Contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="search-toggle" id="searchToggle" aria-label="Toggle search bar" aria-expanded="false">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container" id="searchContainer" role="search">
+        <div class="search-wrapper">
+            <label for="searchInput" class="visually-hidden">Search for programs, trainers, or admin functions</label>
+            <input type="text" id="searchInput" placeholder="Search for programs, trainers, admin functions...">
+            <button class="search-btn" onclick="searchWebsite()" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar" role="navigation" aria-label="Admin navigation">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle admin sidebar" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="sidebar-header">
+            <h2>Admin Panel</h2>
+        </div>
+        <ul class="sidebar-list">
+            <li><a href="#create-staff" class="sidebar-link"><i class="fas fa-user-plus"></i> Create Staff</a></li>
+            <li><a href="#customer-inquiries" class="sidebar-link"><i class="fas fa-envelope"></i> Customer Inquiries</a></li>
+            <li><a href="#customer-memberships" class="sidebar-link"><i class="fas fa-ticket-alt"></i> Purchased Memberships</a></li>
+            <li><a href="#customer-appointments" class="sidebar-link"><i class="fas fa-calendar-check"></i> Customer Appointments</a></li>
+            <li><a href="#manage-users" class="sidebar-link"><i class="fas fa-users"></i> Manage Users</a></li>
+            <li><a href="logout.php" class="sidebar-link"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" role="main">
+        <section class="hero">
+            <div class="hero-background"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            Admin <span class="gradient-text">Dashboard</span>
+                        </h1>
+                        <p class="hero-subtitle">Welcome back, Admin! Manage staff, inquiries, memberships, and more.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="staff-form" id="create-staff">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Create <span class="gradient-text">Staff Account</span></h2>
+                    <p class="section-subtitle">Add a new staff member to the FitZone team.</p>
+                </div>
+                <div class="form-container">
+                    <form action="create_staff.php" method="POST" id="staffForm">
+                        <div class="form-group">
+                            <label for="staff_username">Staff Username</label>
+                            <input type="text" id="staff_username" name="staff_username" placeholder="Enter Staff Username" required aria-describedby="staff_username-error">
+                            <span class="error-message" id="staff_username-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="staff_password">Staff Password</label>
+                            <input type="password" id="staff_password" name="staff_password" placeholder="Enter Staff Password" required aria-describedby="staff_password-error">
+                            <span class="error-message" id="staff_password-error"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create Staff</button>
+                        <p class="form-message" id="formMessage"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="inquiries" id="customer-inquiries">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Customer <span class="gradient-text">Inquiries</span></h2>
+                    <p class="section-subtitle">View and manage customer inquiries.</p>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="fetch_inquiries.php" width="100%" height="400px" title="Customer Inquiries" aria-label="Customer inquiries list"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="memberships" id="customer-memberships">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Purchased <span class="gradient-text">Memberships</span></h2>
+                    <p class="section-subtitle">View all purchased memberships.</p>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="fetch_all_memberships.php" width="100%" height="400px" title="Purchased Memberships" aria-label="Purchased memberships list"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="appointments" id="customer-appointments">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Customer <span class="gradient-text">Appointments</span></h2>
+                    <p class="section-subtitle">Manage all customer appointments.</p>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="fetch_all_appointments.php" width="100%" height="400px" title="Customer Appointments" aria-label="Customer appointments list"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="users" id="manage-users">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Manage <span class="gradient-text">Users</span></h2>
+                    <p class="section-subtitle">View and manage all users (customers and staff).</p>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="fetch_users.php" width="100%" height="400px" title="Manage Users" aria-label="Users list"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script defer>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            body.classList.toggle('light-theme');
+            localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+        }
+
+        // Mobile Navigation (Top Nav)
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navClose = document.getElementById('navClose');
+        const nav = document.getElementById('nav');
+
+        mobileToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+            mobileToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+        });
+
+        navClose.addEventListener('click', () => {
+            nav.classList.remove('active');
+            mobileToggle.classList.remove('active');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+        });
+
+        // Sidebar Toggle
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            sidebarToggle.classList.toggle('active');
+            sidebarToggle.setAttribute('aria-expanded', sidebar.classList.contains('active'));
+        });
+
+        // Search Toggle
+        const searchToggle = document.getElementById('searchToggle');
+        const searchContainer = document.getElementById('searchContainer');
+
+        searchToggle.addEventListener('click', () => {
+            searchContainer.classList.toggle('active');
+            searchToggle.setAttribute('aria-expanded', searchContainer.classList.contains('active'));
+        });
+
+        // Search Function
+        function searchWebsite() {
+            let query = document.getElementById("searchInput").value.toLowerCase().trim();
+            let pages = {
+                "home": "./Home.html",
+                "programs": "./Program.html",
+                "membership": "./Membership.html",
+                "timetable": "./Timetable.html",
+                "trainers": "./Trainers.html",
+                "about": "./Aboutus.html",
+                "contact": "./Contact.html",
+                "register": "./CustomerReg.html",
+                "login": "./Login.html",
+                "staff": "#create-staff",
+                "inquiries": "#customer-inquiries",
+                "memberships": "#customer-memberships",
+                "appointments": "#customer-appointments",
+                "users": "#manage-users"
+            };
+            
+            for (let key in pages) {
+                if (query.includes(key)) {
+                    if (pages[key].startsWith('./')) {
+                        window.location.href = pages[key];
+                    } else {
+                        document.querySelector(pages[key])?.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                    return;
+                }
+            }
+            alert("No results found. Try searching for: staff, inquiries, memberships, appointments, or users.");
+        }
+
+        // Enter key search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchWebsite();
+            }
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, .form-group').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form Validation
+        const staffForm = document.getElementById('staffForm');
+        const formMessage = document.getElementById('formMessage');
+
+        staffForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('staff_username').value.trim();
+            const password = document.getElementById('staff_password').value.trim();
+            let valid = true;
+
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+
+            // Username validation
+            if (username === '') {
+                document.getElementById('staff_username-error').textContent = 'Username cannot be empty';
+                valid = false;
+            } else if (username.length < 3) {
+                document.getElementById('staff_username-error').textContent = 'Username must be at least 3 characters long';
+                valid = false;
+            }
+
+            // Password validation
+            if (password === '') {
+                document.getElementById('staff_password-error').textContent = 'Password cannot be empty';
+                valid = false;
+            } else if (password.length < 5) {
+                document.getElementById('staff_password-error').textContent = 'Password must be at least 5 characters long';
+                valid = false;
+            }
+
+            if (valid) {
+                formMessage.textContent = 'Staff account created successfully!';
+                formMessage.classList.add('success');
+                formMessage.classList.remove('error');
+                fetch('create_staff.php', {
+                    method: 'POST',
+                    body: new FormData(staffForm)
+                })
+                .then(response => response.text())
+                .then(data => {
+                    formMessage.textContent = data;
+                    if (data.includes('success')) {
+                        staffForm.reset();
+                        setTimeout(() => {
+                            formMessage.textContent = '';
+                        }, 3000);
+                    }
+                })
+                .catch(error => {
+                    formMessage.textContent = 'Error creating staff account. Please try again.';
+                    formMessage.classList.add('error');
+                    formMessage.classList.remove('success');
+                    console.error('Error:', error);
+                });
+            } else {
+                formMessage.textContent = 'Please fix the errors above and try again.';
+                formMessage.classList.add('error');
+                formMessage.classList.remove('success');
+            }
+        });
+
+        // Delete User Function
+        function deleteUser(id, userType) {
+            if (confirm(`Are you sure you want to delete this ${userType} (ID: ${id})? This action cannot be undone.`)) {
+                let formData = new FormData();
+                formData.append('id', id);
+                formData.append('userType', userType);
+
+                fetch('delete_user.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    alert(data);
+                    document.querySelector('iframe[src="fetch_users.php"]').contentWindow.location.reload();
+                })
+                .catch(error => {
+                    alert('Error deleting user. Please try again.');
+                    console.error('Error:', error);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

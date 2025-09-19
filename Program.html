@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover FitZone's fitness programs, including personalized training, group classes, nutrition counseling, and more.">
+    <title>Programs - FitZone Fitness Center</title>
+    <link rel="icon" type="image/jpeg" href="Pictures/WebIcon1.jpeg">
+    <link rel="stylesheet" href="Program.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="light-theme">
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle between light and dark theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="logo">
+                <h1>Fit<span class="accent">Zone</span></h1>
+                <p class="tagline">Transform Your Life</p>
+            </div>
+            
+            <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+                <button class="nav-close" id="navClose" aria-label="Close navigation">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="./Home.html" class="nav-link">Home</a></li>
+                    <li><a href="./Program.html" class="nav-link active" aria-current="page">Programs</a></li>
+                    <li><a href="./Membership.html" class="nav-link">Membership</a></li>
+                    <li><a href="./Timetable.html" class="nav-link">Timetable</a></li>
+                    <li><a href="./Trainers.html" class="nav-link">Trainers</a></li>
+                    <li><a href="./Aboutus.html" class="nav-link">About Us</a></li>
+                    <li><a href="http://localhost/MyProject/Contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="http://localhost/MyProject/LoginForm.html" class="btn btn-primary">Login</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="search-toggle" id="searchToggle" aria-label="Toggle search bar" aria-expanded="false">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container" id="searchContainer" role="search">
+        <div class="search-wrapper">
+            <label for="searchInput" class="visually-hidden">Search for programs, trainers, or services</label>
+            <input type="text" id="searchInput" placeholder="Search for programs, trainers, services...">
+            <button class="search-btn" onclick="searchWebsite()" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modals for Each Program -->
+    <div class="modal" id="fitnessProgramModal" role="dialog" aria-labelledby="fitnessProgramModalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" data-modal="fitnessProgramModal" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 id="fitnessProgramModalTitle" class="modal-title">Fitness Program</h2>
+            <div class="modal-body">
+                <p>Our Fitness Program is designed for all levels, from beginners to advanced athletes. Led by certified trainers, this program offers a comprehensive approach to fitness, combining strength training, cardiovascular exercises, and flexibility workouts. You'll receive personalized workout plans tailored to your goals, whether you're aiming to build muscle, increase endurance, or improve overall health. Our state-of-the-art facilities and supportive community ensure you stay motivated and achieve results.</p>
+                <p><strong>Benefits:</strong></p>
+                <ul>
+                    <li>Customized workout plans based on your fitness level</li>
+                    <li>Access to premium equipment and facilities</li>
+                    <li>Regular progress tracking and trainer support</li>
+                    <li>Variety of exercises to keep workouts engaging</li>
+                </ul>
+                <a href="./Membership.html" class="btn btn-primary">Join Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="personalizedTrainingModal" role="dialog" aria-labelledby="personalizedTrainingModalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" data-modal="personalizedTrainingModal" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 id="personalizedTrainingModalTitle" class="modal-title">Personalized Training</h2>
+            <div class="modal-body">
+                <p>Our Personalized Training Program offers one-on-one coaching to help you achieve your fitness goals faster. Our certified trainers create a custom workout plan based on your specific needs, fitness level, and preferences. Whether you're targeting weight loss, muscle gain, or improved athletic performance, our trainers provide expert guidance, form correction, and motivation to keep you on track.</p>
+                <p><strong>Benefits:</strong></p>
+                <ul>
+                    <li>One-on-one sessions with a dedicated trainer</li>
+                    <li>Personalized workout and nutrition plans</li>
+                    <li>Focused attention to improve technique and prevent injury</li>
+                    <li>Flexible scheduling to fit your lifestyle</li>
+                </ul>
+                <a href="./Membership.html" class="btn btn-primary">Join Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="groupClassesModal" role="dialog" aria-labelledby="groupClassesModalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" data-modal="groupClassesModal" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 id="groupClassesModalTitle" class="modal-title">Group Classes</h2>
+            <div class="modal-body">
+                <p>Our Group Classes offer high-energy, fun workouts in a supportive community environment. Led by professional trainers, these classes include strength training, cardio sessions, and flexibility exercises like Zumba, HIIT, and spin classes. Perfect for those who thrive in a group setting, our classes foster camaraderie and motivation to help you stay committed.</p>
+                <p><strong>Benefits:</strong></p>
+                <ul>
+                    <li>Variety of class types to suit all fitness levels</li>
+                    <li>Supportive and energetic group atmosphere</li>
+                    <li>Expert-led sessions with structured workouts</li>
+                    <li>Flexible class schedules throughout the week</li>
+                </ul>
+                <a href="./Membership.html" class="btn btn-primary">Join Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="nutritionCounselingModal" role="dialog" aria-labelledby="nutritionCounselingModalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" data-modal="nutritionCounselingModal" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 id="nutritionCounselingModalTitle" class="modal-title">Nutrition Counseling</h2>
+            <div class="modal-body">
+                <p>Nutrition is the foundation of fitness success. Our Nutrition Counseling service provides expert guidance on meal planning, portion control, and healthy eating habits. Our certified nutritionists work with you to create a sustainable diet plan that complements your training and supports your fitness goals, whether it's weight loss, muscle gain, or improved energy levels.</p>
+                <p><strong>Benefits:</strong></p>
+                <ul>
+                    <li>Personalized meal plans tailored to your goals</li>
+                    <li>Education on balanced nutrition and portion control</li>
+                    <li>Support for dietary restrictions and preferences</li>
+                    <li>Ongoing consultations to track progress</li>
+                </ul>
+                <a href="./Membership.html" class="btn btn-primary">Join Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="cardioYogaModal" role="dialog" aria-labelledby="cardioYogaModalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" data-modal="cardioYogaModal" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 id="cardioYogaModalTitle" class="modal-title">Cardio, Strength & Yoga</h2>
+            <div class="modal-body">
+                <p>Our Cardio, Strength, and Yoga programs offer a holistic approach to fitness. Cardio workouts improve heart health and endurance, Strength Training builds muscle and enhances body composition, and Yoga promotes flexibility, stress reduction, and mental well-being. These programs are designed to balance physical and mental health for optimal results.</p>
+                <p><strong>Benefits:</strong></p>
+                <ul>
+                    <li>Cardio sessions for improved cardiovascular health</li>
+                    <li>Strength training for muscle growth and power</li>
+                    <li>Yoga classes for flexibility and stress relief</li>
+                    <li>Varied workouts to keep you engaged and balanced</li>
+                </ul>
+                <a href="./Membership.html" class="btn btn-primary">Join Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main role="main">
+        <section class="hero" id="programs">
+            <div class="hero-background"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="gradient-text">FIND THE RIGHT</span>
+                            <br>TRAINING PROGRAM
+                        </h1>
+                        <p class="hero-subtitle">Limited Memberships Only - Join Now to Transform Your Life!</p>
+                        <div class="hero-buttons">
+                            <a href="./Membership.html" class="btn btn-primary">
+                                <i class="fas fa-dumbbell"></i> Join Now
+                            </a>
+                            <a href="http://localhost/MyProject/Contact.html" class="btn btn-secondary">
+                                <i class="fas fa-phone"></i> Get In Touch
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="programs" id="fitness-program">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Fitness <span class="gradient-text">Program</span></h2>
+                    <p class="section-subtitle">Build strength, improve endurance, and enhance overall fitness with our tailored workouts.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-content">
+                        <p>Our Fitness Program is designed for all levels, from beginners to experienced athletes. Our certified trainers guide you through customized workouts to help you reach your goals, whether it's building muscle, boosting stamina, or improving overall health.</p>
+                        <button class="btn btn-outline" data-modal="fitnessProgramModal">Learn More</button>
+                    </div>
+                    <div class="program-gallery">
+                        <div class="image-item">
+                            <img src="./Pictures/FitnessProgram1.jpg" alt="Fitness Program Session" loading="lazy">
+                        </div>
+                        <div class="image-item">
+                            <img src="./Pictures/FitnessProgram2.jpg" alt="Fitness Program Workout" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="programs" id="personalized-training">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Personalized <span class="gradient-text">Training</span></h2>
+                    <p class="section-subtitle">Achieve your goals faster with a custom workout plan tailored to your needs.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-content">
+                        <p>Our Personalized Training Program is crafted by certified trainers based on your fitness level, goals, and preferences. Get one-on-one coaching to maximize results and stay motivated.</p>
+                        <button class="btn btn-outline" data-modal="personalizedTrainingModal">Learn More</button>
+                    </div>
+                    <div class="program-gallery">
+                        <div class="image-item">
+                            <img src="./Pictures/PersonalizedTraining1.jpg" alt="Personalized Training Session" loading="lazy">
+                        </div>
+                        <div class="image-item">
+                            <img src="./Pictures/PersonalizedTraining2.jpg" alt="Personalized Training Workout" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="programs" id="group-classes">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Group <span class="gradient-text">Classes</span></h2>
+                    <p class="section-subtitle">Stay motivated with high-energy group workouts in a supportive community.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-content">
+                        <p>Join our Group Classes for fun, high-energy workouts including strength training, cardio, and flexibility exercises. Led by professional trainers, these classes foster a supportive environment to keep you motivated.</p>
+                        <button class="btn btn-outline" data-modal="groupClassesModal">Learn More</button>
+                    </div>
+                    <div class="program-gallery">
+                        <div class="image-item">
+                            <img src="./Pictures/GroupClasses1.jpg" alt="Group Class Session" loading="lazy">
+                        </div>
+                        <div class="image-item">
+                            <img src="./Pictures/GroupClasses2.jpg" alt="Group Class Workout" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="programs" id="nutrition-counseling">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nutrition <span class="gradient-text">Counseling</span></h2>
+                    <p class="section-subtitle">Fuel your body with expert guidance on meal planning and healthy eating.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-content">
+                        <p>Nutrition is key to fitness success. Our Nutrition Counseling service offers expert advice on meal planning, diet strategies, and healthy eating habits to complement your training and boost results.</p>
+                        <button class="btn btn-outline" data-modal="nutritionCounselingModal">Learn More</button>
+                    </div>
+                    <div class="program-gallery">
+                        <div class="image-item">
+                            <img src="./Pictures/NutritionCounseling1.jpg" alt="Nutrition Counseling Session" loading="lazy">
+                        </div>
+                        <div class="image-item">
+                            <img src="./Pictures/NutritionCounseling2.jpg" alt="Nutrition Counseling Advice" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="programs" id="cardio-yoga">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Cardio, Strength & <span class="gradient-text">Yoga</span></h2>
+                    <p class="section-subtitle">Improve heart health, build muscle, and enhance well-being with our diverse programs.</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-content">
+                        <p>Our Cardio Workouts boost heart health and endurance, Strength Training builds muscle and enhances body composition, and Yoga improves flexibility, reduces stress, and promotes overall well-being.</p>
+                        <button class="btn btn-outline" data-modal="cardioYogaModal">Learn More</button>
+                    </div>
+                    <div class="program-gallery">
+                        <div class="image-item">
+                            <img src="./Pictures/Cardio1.jpg" alt="Cardio Training Session" loading="lazy">
+                        </div>
+                        <div class="image-item">
+                            <img src="./Pictures/Yoga1.jpg" alt="Yoga Session" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <h3>Fit<span class="accent">Zone</span></h3>
+                        <p class="brand-tagline">Where Champions Are Made</p>
+                        <p class="brand-description">Transform your body, elevate your mind, and unleash your potential at FitZone - the ultimate destination for serious fitness enthusiasts.</p>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+94 77 123 4567</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>info@fitzone.lk</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Kurunegala, Sri Lanka</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="./Home.html">Home</a></li>
+                        <li><a href="./Program.html">Programs</a></li>
+                        <li><a href="./Membership.html">Membership</a></li>
+                        <li><a href="./Timetable.html">Timetable</a></li>
+                        <li><a href="./Trainers.html">Trainers</a></li>
+                        <li><a href="./Aboutus.html">About Us</a></li>
+                        <li><a href="http://localhost/MyProject/Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Programs</h4>
+                    <ul class="footer-links">
+                        <li><a href="#fitness-program">Fitness Program</a></li>
+                        <li><a href="#personalized-training">Personalized Training</a></li>
+                        <li><a href="#group-classes">Group Classes</a></li>
+                        <li><a href="#nutrition-counseling">Nutrition Counseling</a></li>
+                        <li><a href="#cardio-yoga">Cardio & Yoga</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Opening Hours</h4>
+                    <div class="opening-hours">
+                        <div class="hours-item">
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">5:00 AM - 11:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Saturday</span>
+                            <span class="time">6:00 AM - 10:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Sunday</span>
+                            <span class="time">7:00 AM - 9:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-features">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h5>Sanitized & Safe</h5>
+                        <p>Health protocols maintained</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h5>Certified Trainers</h5>
+                        <p>Expert fitness professionals</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h5>Premium Equipment</h5>
+                        <p>State-of-the-art machines</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h5>Flexible Hours</h5>
+                        <p>Extended daily access</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 FitZone Fitness Center. All Rights Reserved.</p>
+                    <div class="footer-legal">
+                        <a href="PrivacyPolicy.html">Privacy Policy</a>
+                        <span class="separator">|</span>
+                        <a href="TermsOfService.html">Terms of Service</a>
+                        <span class="separator">|</span>
+                        <a href="CookiePolicy.html">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script defer>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            body.classList.toggle('light-theme');
+            localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+        }
+
+        // Mobile Navigation
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navClose = document.getElementById('navClose');
+        const nav = document.getElementById('nav');
+
+        mobileToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+            mobileToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+        });
+
+        navClose.addEventListener('click', () => {
+            nav.classList.remove('active');
+            mobileToggle.classList.remove('active');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+        });
+
+        // Search Toggle
+        const searchToggle = document.getElementById('searchToggle');
+        const searchContainer = document.getElementById('searchContainer');
+
+        searchToggle.addEventListener('click', () => {
+            searchContainer.classList.toggle('active');
+            searchToggle.setAttribute('aria-expanded', searchContainer.classList.contains('active'));
+        });
+
+        // Search Function
+        function searchWebsite() {
+            let query = document.getElementById("searchInput").value.toLowerCase().trim();
+            let pages = {
+                "home": "./Home.html",
+                "programs": "#programs",
+                "fitness": "#fitness-program",
+                "personalized": "#personalized-training",
+                "group": "#group-classes",
+                "nutrition": "#nutrition-counseling",
+                "cardio": "#cardio-yoga",
+                "yoga": "#cardio-yoga",
+                "membership": "./Membership.html",
+                "timetable": "./Timetable.html",
+                "trainers": "./Trainers.html",
+                "about": "./Aboutus.html",
+                "contact": "./Contact.html"
+            };
+            
+            for (let key in pages) {
+                if (query.includes(key)) {
+                    if (pages[key].startsWith('./')) {
+                        window.location.href = pages[key];
+                    } else {
+                        document.querySelector(pages[key])?.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                    return;
+                }
+            }
+            alert("No results found. Try searching for: fitness, personalized, group, nutrition, cardio, yoga, or membership.");
+        }
+
+        // Enter key search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchWebsite();
+            }
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Modal Functionality
+        const modalButtons = document.querySelectorAll('[data-modal]');
+        const modals = document.querySelectorAll('.modal');
+        const modalCloses = document.querySelectorAll('.modal-close');
+
+        modalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modalId = button.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                modal.classList.add('active');
+                modal.setAttribute('aria-hidden', 'false');
+                modal.querySelector('.modal-content').focus();
+                document.body.style.overflow = 'hidden'; 
+            });
+        });
+
+        modalCloses.forEach(button => {
+            button.addEventListener('click', () => {
+                const modalId = button.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                modal.classList.remove('active');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = ''; 
+            });
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modals.forEach(modal => {
+                    modal.classList.remove('active');
+                    modal.setAttribute('aria-hidden', 'true');
+                });
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close modal on outside click
+        modals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    modal.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Focus trapping in modal
+        modals.forEach(modal => {
+            const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+
+            modal.addEventListener('keydown', (e) => {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstElement) {
+                            e.preventDefault();
+                            lastElement.focus();
+                        }
+                    } else {
+                        if (document.activeElement === lastElement) {
+                            e.preventDefault();
+                            firstElement.focus();
+                        }
+                    }
+                }
+            });
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, .program-card, .image-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

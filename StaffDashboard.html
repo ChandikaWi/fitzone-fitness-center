@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Staff Dashboard for FitZone Fitness Center to manage customer inquiries, memberships, appointments, and blog posts in Kurunegala, Sri Lanka.">
+    <title>Staff Dashboard - FitZone Fitness Center</title>
+    <link rel="icon" type="image/jpeg" href="Pictures/WebIcon1.jpeg">
+    <link rel="stylesheet" href="StaffDashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="light-theme">
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle between light and dark theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="logo">
+                <h1>Fit<span class="accent">Zone</span></h1>
+                <p class="tagline">Transform Your Life</p>
+            </div>
+            
+            <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+                <button class="nav-close" id="navClose" aria-label="Close navigation">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="./Home.html" class="nav-link">Home</a></li>
+                    <li><a href="./Program.html" class="nav-link">Programs</a></li>
+                    <li><a href="./Membership.html" class="nav-link">Membership</a></li>
+                    <li><a href="./Timetable.html" class="nav-link">Timetable</a></li>
+                    <li><a href="./Trainers.html" class="nav-link">Trainers</a></li>
+                    <li><a href="./Aboutus.html" class="nav-link">About Us</a></li>
+                    <li><a href="http://localhost/MyProject/Contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="search-toggle" id="searchToggle" aria-label="Toggle search bar" aria-expanded="false">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container" id="searchContainer" role="search">
+        <div class="search-wrapper">
+            <label for="searchInput" class="visually-hidden">Search for inquiries, memberships, appointments, or blogs</label>
+            <input type="text" id="searchInput" placeholder="Search for inquiries, memberships, appointments, blogs...">
+            <button class="search-btn" onclick="searchWebsite()" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar" role="navigation" aria-label="Staff navigation">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle staff sidebar" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="sidebar-header">
+            <h2>Staff Panel</h2>
+        </div>
+        <ul class="sidebar-list">
+            <li><a href="#customer-inquiries" class="sidebar-link"><i class="fas fa-envelope"></i> Customer Inquiries</a></li>
+            <li><a href="#customer-memberships" class="sidebar-link"><i class="fas fa-ticket-alt"></i> Purchased Memberships</a></li>
+            <li><a href="#customer-appointments" class="sidebar-link"><i class="fas fa-calendar-check"></i> Customer Appointments</a></li>
+            <li><a href="#post-blog" class="sidebar-link"><i class="fas fa-pen"></i> Post a Blog</a></li>
+            <li><a href="#manage-blogs" class="sidebar-link"><i class="fas fa-blog"></i> Manage Blogs</a></li>
+            <li><a href="logout.php" class="sidebar-link"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" role="main">
+        <section class="hero">
+            <div class="hero-background"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            Staff <span class="gradient-text">Dashboard</span>
+                        </h1>
+                        <p class="hero-subtitle">Welcome back, Staff! Manage inquiries, memberships, appointments, and blogs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="inquiries" id="customer-inquiries">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Customer <span class="gradient-text">Inquiries</span></h2>
+                    <p class="section-subtitle">View and respond to customer inquiries.</p>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="fetch_inquiries.php" width="100%" height="400px" title="Customer Inquiries" aria-label="Customer inquiries list"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="memberships" id="customer-memberships">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Purchased <span class="gradient-text">Memberships</span></h2>
+                    <p class="section-subtitle">View all customer memberships.</p>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="fetch_all_memberships.php" width="100%" height="400px" title="Purchased Memberships" aria-label="Purchased memberships list"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="appointments" id="customer-appointments">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Customer <span class="gradient-text">Appointments</span></h2>
+                    <p class="section-subtitle">Manage all customer appointments.</p>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="fetch_all_appointments.php" width="100%" height="400px" title="Customer Appointments" aria-label="Customer appointments list"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-form" id="post-blog">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Post a <span class="gradient-text">Blog Article</span></h2>
+                    <p class="section-subtitle">Share fitness tips and updates with our community.</p>
+                </div>
+                <div class="form-container">
+                    <form action="post_blog.php" method="POST" enctype="multipart/form-data" id="blogForm">
+                        <div class="form-group">
+                            <label for="title">Blog Title</label>
+                            <input type="text" id="title" name="title" placeholder="Enter blog title" required aria-describedby="title-error">
+                            <span class="error-message" id="title-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Upload Image</label>
+                            <input type="file" id="image" name="image" accept="image/*" required aria-describedby="image-error">
+                            <span class="error-message" id="image-error"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Post Blog</button>
+                        <p class="form-message" id="blogFormMessage"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="manage-blogs" id="manage-blogs">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Manage <span class="gradient-text">Blog Posts</span></h2>
+                    <p class="section-subtitle">View and delete blog posts.</p>
+                </div>
+                <div class="blog-posts-container" id="blogPostsContainer"></div>
+            </div>
+        </section>
+    </main>
+
+    <script defer>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            body.classList.toggle('light-theme');
+            localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+        }
+
+        // Mobile Navigation (Top Nav)
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navClose = document.getElementById('navClose');
+        const nav = document.getElementById('nav');
+
+        mobileToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+            mobileToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+        });
+
+        navClose.addEventListener('click', () => {
+            nav.classList.remove('active');
+            mobileToggle.classList.remove('active');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+        });
+
+        // Sidebar Toggle
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            sidebarToggle.classList.toggle('active');
+            sidebarToggle.setAttribute('aria-expanded', sidebar.classList.contains('active'));
+        });
+
+        // Search Toggle
+        const searchToggle = document.getElementById('searchToggle');
+        const searchContainer = document.getElementById('searchContainer');
+
+        searchToggle.addEventListener('click', () => {
+            searchContainer.classList.toggle('active');
+            searchToggle.setAttribute('aria-expanded', searchContainer.classList.contains('active'));
+        });
+
+        // Search Function
+        function searchWebsite() {
+            let query = document.getElementById("searchInput").value.toLowerCase().trim();
+            let pages = {
+                "home": "./Home.html",
+                "programs": "./Program.html",
+                "membership": "./Membership.html",
+                "timetable": "./Timetable.html",
+                "trainers": "./Trainers.html",
+                "about": "./Aboutus.html",
+                "contact": "./Contact.html",
+                "register": "./CustomerReg.html",
+                "login": "./Login.html",
+                "inquiries": "#customer-inquiries",
+                "memberships": "#customer-memberships",
+                "appointments": "#customer-appointments",
+                "post blog": "#post-blog",
+                "manage blogs": "#manage-blogs"
+            };
+            
+            for (let key in pages) {
+                if (query.includes(key)) {
+                    if (pages[key].startsWith('./')) {
+                        window.location.href = pages[key];
+                    } else {
+                        document.querySelector(pages[key])?.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                    return;
+                }
+            }
+            alert("No results found. Try searching for: inquiries, memberships, appointments, or blogs.");
+        }
+
+        // Enter key search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchWebsite();
+            }
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, .form-group').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Blog Form Validation
+        const blogForm = document.getElementById('blogForm');
+        const blogFormMessage = document.getElementById('blogFormMessage');
+
+        blogForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const title = document.getElementById('title').value.trim();
+            const image = document.getElementById('image').files[0];
+            let valid = true;
+
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+
+            // Title validation
+            if (title === '') {
+                document.getElementById('title-error').textContent = 'Blog title cannot be empty';
+                valid = false;
+            } else if (title.length < 5) {
+                document.getElementById('title-error').textContent = 'Blog title must be at least 5 characters long';
+                valid = false;
+            }
+
+            // Image validation
+            if (!image) {
+                document.getElementById('image-error').textContent = 'Please upload an image';
+                valid = false;
+            } else {
+                const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                if (!validTypes.includes(image.type)) {
+                    document.getElementById('image-error').textContent = 'Please upload a valid image (JPEG, PNG, GIF)';
+                    valid = false;
+                } else if (image.size > 5 * 1024 * 1024) { // 5MB limit
+                    document.getElementById('image-error').textContent = 'Image size must be less than 5MB';
+                    valid = false;
+                }
+            }
+
+            if (valid) {
+                blogFormMessage.textContent = 'Blog post submitted successfully!';
+                blogFormMessage.classList.add('success');
+                blogFormMessage.classList.remove('error');
+                fetch('post_blog.php', {
+                    method: 'POST',
+                    body: new FormData(blogForm)
+                })
+                .then(response => response.text())
+                .then(data => {
+                    blogFormMessage.textContent = data;
+                    if (data.includes('success')) {
+                        blogForm.reset();
+                        loadBlogPosts();
+                        setTimeout(() => {
+                            blogFormMessage.textContent = '';
+                        }, 3000);
+                    }
+                })
+                .catch(error => {
+                    blogFormMessage.textContent = 'Error posting blog. Please try again.';
+                    blogFormMessage.classList.add('error');
+                    blogFormMessage.classList.remove('success');
+                    console.error('Error:', error);
+                });
+            } else {
+                blogFormMessage.textContent = 'Please fix the errors above and try again.';
+                blogFormMessage.classList.add('error');
+                blogFormMessage.classList.remove('success');
+            }
+        });
+
+        // Load Blog Posts
+        function loadBlogPosts() {
+            fetch("fetch_blog_posts.php")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("blogPostsContainer").innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading blog posts:', error);
+                    document.getElementById("blogPostsContainer").innerHTML = '<p>Error loading blog posts. Please try again.</p>';
+                });
+        }
+
+        // Delete Blog Post
+        function deleteBlogPost(id) {
+            if (confirm(`Are you sure you want to delete blog post ID ${id}? This action cannot be undone.`)) {
+                fetch("delete_blog_post.php", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: "id=" + id
+                })
+                .then(response => response.text())
+                .then(data => {
+                    if (data.trim() === "success") {
+                        alert("Blog post deleted successfully!");
+                        loadBlogPosts();
+                    } else {
+                        alert("Failed to delete blog post. Please try again.");
+                    }
+                })
+                .catch(error => {
+                    alert("Error deleting blog post. Please try again.");
+                    console.error('Error:', error);
+                });
+            }
+        }
+
+        // Load blog posts on page load
+        window.onload = loadBlogPosts;
+    </script>
+</body>
+</html>

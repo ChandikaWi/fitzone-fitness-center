@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Customer Dashboard for FitZone Fitness Center to manage memberships and appointments in Kurunegala, Sri Lanka.">
+    <title>Customer Dashboard - FitZone Fitness Center</title>
+    <link rel="icon" type="image/jpeg" href="Pictures/WebIcon1.jpeg">
+    <link rel="stylesheet" href="CustomerDashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="light-theme">
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle between light and dark theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="logo">
+                <h1>Fit<span class="accent">Zone</span></h1>
+                <p class="tagline">Transform Your Life</p>
+            </div>
+            
+            <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+                <button class="nav-close" id="navClose" aria-label="Close navigation">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="./Home.html" class="nav-link">Home</a></li>
+                    <li><a href="./Program.html" class="nav-link">Programs</a></li>
+                    <li><a href="./Membership.html" class="nav-link">Membership</a></li>
+                    <li><a href="./Timetable.html" class="nav-link">Timetable</a></li>
+                    <li><a href="./Trainers.html" class="nav-link">Trainers</a></li>
+                    <li><a href="./Aboutus.html" class="nav-link">About Us</a></li>
+                    <li><a href="http://localhost/MyProject/Contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="search-toggle" id="searchToggle" aria-label="Toggle search bar" aria-expanded="false">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container" id="searchContainer" role="search">
+        <div class="search-wrapper">
+            <label for="searchInput" class="visually-hidden">Search for programs, memberships, or appointments</label>
+            <input type="text" id="searchInput" placeholder="Search for programs, memberships, appointments...">
+            <button class="search-btn" onclick="searchWebsite()" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar" role="navigation" aria-label="Customer navigation">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle customer sidebar" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="sidebar-header">
+            <h2>Customer Panel</h2>
+        </div>
+        <ul class="sidebar-list">
+            <li><a href="#membership-selection" class="sidebar-link"><i class="fas fa-ticket-alt"></i> Choose Membership</a></li>
+            <li><a href="#purchased-memberships" class="sidebar-link"><i class="fas fa-clipboard-check"></i> Your Memberships</a></li>
+            <li><a href="#book-appointment" class="sidebar-link"><i class="fas fa-calendar-plus"></i> Book Appointment</a></li>
+            <li><a href="#your-appointments" class="sidebar-link"><i class="fas fa-calendar-check"></i> Your Appointments</a></li>
+            <li><a href="logout.php" class="sidebar-link"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" role="main">
+        <section class="hero">
+            <div class="hero-background"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            Customer <span class="gradient-text">Dashboard</span>
+                        </h1>
+                        <p class="hero-subtitle">Welcome back! Manage your memberships and appointments with ease.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="membership-form" id="membership-selection">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Choose Your <span class="gradient-text">Membership</span></h2>
+                    <p class="section-subtitle">Select a membership plan to unlock exclusive fitness benefits.</p>
+                </div>
+                <div class="form-container">
+                    <form action="purchase_membership.php" method="POST" id="membershipForm">
+                        <div class="form-group">
+                            <label for="membership">Membership Plan</label>
+                            <select name="membership" id="membership" required aria-describedby="membership-error">
+                                <option value="">Select a Membership</option>
+                                <option value="Silver - 1 Month|10000">Silver - 1 Month (Rs. 10,000)</option>
+                                <option value="Silver - 3 Months|30000">Silver - 3 Months (Rs. 30,000)</option>
+                                <option value="Silver - 6 Months|40000">Silver - 6 Months (Rs. 40,000)</option>
+                                <option value="Gold - Annual|48000">Gold - Annual (Rs. 48,000)</option>
+                                <option value="Platinum - Gents|65000">Platinum - Gents Annual (Rs. 65,000)</option>
+                                <option value="Platinum - Ladies|55000">Platinum - Ladies Annual (Rs. 55,000)</option>
+                                <option value="Platinum - Couple|85000">Platinum - Couple Annual (Rs. 85,000)</option>
+                            </select>
+                            <span class="error-message" id="membership-error"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Buy Membership</button>
+                        <p class="form-message" id="membershipFormMessage"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="purchased-memberships" id="purchased-memberships">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Your Purchased <span class="gradient-text">Memberships</span></h2>
+                    <p class="section-subtitle">View your active and past memberships.</p>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="fetch_memberships.php" width="100%" height="200px" title="Your Purchased Memberships" aria-label="Purchased memberships list"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="appointment-form" id="book-appointment">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Book a Gym <span class="gradient-text">Appointment</span></h2>
+                    <p class="section-subtitle">Schedule your next session with our expert trainers.</p>
+                </div>
+                <div class="form-container">
+                    <form action="book_appointment.php" method="POST" id="appointmentForm">
+                        <div class="form-group">
+                            <label for="service">Select Service</label>
+                            <select name="service" id="service" required aria-describedby="service-error">
+                                <option value="">Select a Service</option>
+                                <option value="Fitness Programs">Fitness Programs</option>
+                                <option value="Personalized Training">Personalized Training</option>
+                                <option value="Group Classes">Group Classes</option>
+                                <option value="Nutrition Counseling">Nutrition Counseling</option>
+                                <option value="Cardio">Cardio</option>
+                                <option value="Strength Training">Strength Training</option>
+                            </select>
+                            <span class="error-message" id="service-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="trainer">Select Trainer</label>
+                            <select name="trainer" id="trainer" required aria-describedby="trainer-error">
+                                <option value="">Select a Trainer</option>
+                                <option value="Mr. Akila Wijesinghe">Mr. Akila Wijesinghe</option>
+                                <option value="Mr. Ravindra Perera">Mr. Ravindra Perera</option>
+                                <option value="Mr. Thilina Fernando">Mr. Thilina Fernando</option>
+                            </select>
+                            <span class="error-message" id="trainer-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Select Date</label>
+                            <input type="date" name="date" id="date" required aria-describedby="date-error">
+                            <span class="error-message" id="date-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Select Time</label>
+                            <input type="time" name="time" id="time" required aria-describedby="time-error">
+                            <span class="error-message" id="time-error"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Book Appointment</button>
+                        <p class="form-message" id="appointmentFormMessage"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="appointments" id="your-appointments">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Your <span class="gradient-text">Appointments</span></h2>
+                    <p class="section-subtitle">View and manage your scheduled appointments.</p>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="fetch_appointments.php" width="100%" height="300px" title="Your Appointments" aria-label="Appointments list"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script defer>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            body.classList.toggle('light-theme');
+            localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+        }
+
+        // Mobile Navigation (Top Nav)
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navClose = document.getElementById('navClose');
+        const nav = document.getElementById('nav');
+
+        mobileToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+            mobileToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+        });
+
+        navClose.addEventListener('click', () => {
+            nav.classList.remove('active');
+            mobileToggle.classList.remove('active');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+        });
+
+        // Sidebar Toggle
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            sidebarToggle.classList.toggle('active');
+            sidebarToggle.setAttribute('aria-expanded', sidebar.classList.contains('active'));
+        });
+
+        // Search Toggle
+        const searchToggle = document.getElementById('searchToggle');
+        const searchContainer = document.getElementById('searchContainer');
+
+        searchToggle.addEventListener('click', () => {
+            searchContainer.classList.toggle('active');
+            searchToggle.setAttribute('aria-expanded', searchContainer.classList.contains('active'));
+        });
+
+        // Search Function
+        function searchWebsite() {
+            let query = document.getElementById("searchInput").value.toLowerCase().trim();
+            let pages = {
+                "home": "./Home.html",
+                "programs": "./Program.html",
+                "membership": "./Membership.html",
+                "timetable": "./Timetable.html",
+                "trainers": "./Trainers.html",
+                "about": "./Aboutus.html",
+                "contact": "./Contact.html",
+                "register": "./CustomerReg.html",
+                "login": "./Login.html",
+                "choose membership": "#membership-selection",
+                "your memberships": "#purchased-memberships",
+                "book appointment": "#book-appointment",
+                "your appointments": "#your-appointments"
+            };
+            
+            for (let key in pages) {
+                if (query.includes(key)) {
+                    if (pages[key].startsWith('./')) {
+                        window.location.href = pages[key];
+                    } else {
+                        document.querySelector(pages[key])?.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                    return;
+                }
+            }
+            alert("No results found. Try searching for: membership, appointments, programs, or trainers.");
+        }
+
+        // Enter key search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchWebsite();
+            }
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, .form-group').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Membership Form Validation
+        const membershipForm = document.getElementById('membershipForm');
+        const membershipFormMessage = document.getElementById('membershipFormMessage');
+
+        membershipForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const membership = document.getElementById('membership').value.trim();
+            let valid = true;
+
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+
+            // Membership validation
+            if (membership === '') {
+                document.getElementById('membership-error').textContent = 'Please select a membership plan';
+                valid = false;
+            }
+
+            if (valid) {
+                membershipFormMessage.textContent = 'Membership purchase initiated!';
+                membershipFormMessage.classList.add('success');
+                membershipFormMessage.classList.remove('error');
+                fetch('purchase_membership.php', {
+                    method: 'POST',
+                    body: new FormData(membershipForm)
+                })
+                .then(response => response.text())
+                .then(data => {
+                    membershipFormMessage.textContent = data;
+                    if (data.includes('success')) {
+                        membershipForm.reset();
+                        setTimeout(() => {
+                            membershipFormMessage.textContent = '';
+                            document.querySelector('iframe[src="fetch_memberships.php"]').contentWindow.location.reload();
+                        }, 3000);
+                    }
+                })
+                .catch(error => {
+                    membershipFormMessage.textContent = 'Error purchasing membership. Please try again.';
+                    membershipFormMessage.classList.add('error');
+                    membershipFormMessage.classList.remove('success');
+                    console.error('Error:', error);
+                });
+            } else {
+                membershipFormMessage.textContent = 'Please fix the errors above and try again.';
+                membershipFormMessage.classList.add('error');
+                membershipFormMessage.classList.remove('success');
+            }
+        });
+
+        // Appointment Form Validation
+        const appointmentForm = document.getElementById('appointmentForm');
+        const appointmentFormMessage = document.getElementById('appointmentFormMessage');
+
+        appointmentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const service = document.getElementById('service').value.trim();
+            const trainer = document.getElementById('trainer').value.trim();
+            const date = document.getElementById('date').value.trim();
+            const time = document.getElementById('time').value.trim();
+            let valid = true;
+
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+
+            // Service validation
+            if (service === '') {
+                document.getElementById('service-error').textContent = 'Please select a service';
+                valid = false;
+            }
+
+            // Trainer validation
+            if (trainer === '') {
+                document.getElementById('trainer-error').textContent = 'Please select a trainer';
+                valid = false;
+            }
+
+            // Date validation
+            if (date === '') {
+                document.getElementById('date-error').textContent = 'Please select a date';
+                valid = false;
+            } else {
+                const selectedDate = new Date(date);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                if (selectedDate < today) {
+                    document.getElementById('date-error').textContent = 'Date cannot be in the past';
+                    valid = false;
+                }
+            }
+
+            // Time validation
+            if (time === '') {
+                document.getElementById('time-error').textContent = 'Please select a time';
+                valid = false;
+            }
+
+            if (valid) {
+                appointmentFormMessage.textContent = 'Appointment booked successfully!';
+                appointmentFormMessage.classList.add('success');
+                appointmentFormMessage.classList.remove('error');
+                fetch('book_appointment.php', {
+                    method: 'POST',
+                    body: new FormData(appointmentForm)
+                })
+                .then(response => response.text())
+                .then(data => {
+                    appointmentFormMessage.textContent = data;
+                    if (data.includes('success')) {
+                        appointmentForm.reset();
+                        setTimeout(() => {
+                            appointmentFormMessage.textContent = '';
+                            document.querySelector('iframe[src="fetch_appointments.php"]').contentWindow.location.reload();
+                        }, 3000);
+                    }
+                })
+                .catch(error => {
+                    appointmentFormMessage.textContent = 'Error booking appointment. Please try again.';
+                    appointmentFormMessage.classList.add('error');
+                    appointmentFormMessage.classList.remove('success');
+                    console.error('Error:', error);
+                });
+            } else {
+                appointmentFormMessage.textContent = 'Please fix the errors above and try again.';
+                appointmentFormMessage.classList.add('error');
+                appointmentFormMessage.classList.remove('success');
+            }
+        });
+    </script>
+</body>
+</html>

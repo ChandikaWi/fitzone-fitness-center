@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about FitZone Fitness Center's mission, vision, and why we are Sri Lanka's top choice for fitness.">
+    <title>About Us - FitZone Fitness Center</title>
+    <link rel="icon" type="image/jpeg" href="Pictures/WebIcon1.jpeg">
+    <link rel="stylesheet" href="Aboutus.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="light-theme">
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle between light and dark theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="logo">
+                <h1>Fit<span class="accent">Zone</span></h1>
+                <p class="tagline">Transform Your Life</p>
+            </div>
+            
+            <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+                <button class="nav-close" id="navClose" aria-label="Close navigation">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="./Home.html" class="nav-link">Home</a></li>
+                    <li><a href="./Program.html" class="nav-link">Programs</a></li>
+                    <li><a href="./Membership.html" class="nav-link">Membership</a></li>
+                    <li><a href="./Timetable.html" class="nav-link">Timetable</a></li>
+                    <li><a href="./Trainers.html" class="nav-link">Trainers</a></li>
+                    <li><a href="./Aboutus.html" class="nav-link active" aria-current="page">About Us</a></li>
+                    <li><a href="http://localhost/MyProject/Contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="http://localhost/MyProject/LoginForm.html" class="btn btn-primary">Login</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="search-toggle" id="searchToggle" aria-label="Toggle search bar" aria-expanded="false">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container" id="searchContainer" role="search">
+        <div class="search-wrapper">
+            <label for="searchInput" class="visually-hidden">Search for programs, trainers, or about us</label>
+            <input type="text" id="searchInput" placeholder="Search for programs, trainers, about us...">
+            <button class="search-btn" onclick="searchWebsite()" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main role="main">
+        <section class="hero" id="about">
+            <div class="hero-background"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="gradient-text">ABOUT</span>
+                            <br>FITZONE
+                        </h1>
+                        <p class="hero-subtitle">Discover our mission, vision, and commitment to transforming lives through fitness in Sri Lanka.</p>
+                        <div class="hero-buttons">
+                            <a href="#mission-vision" class="btn btn-primary">
+                                <i class="fas fa-info-circle"></i> Learn More
+                            </a>
+                            <a href="http://localhost/MyProject/Contact.html" class="btn btn-secondary">
+                                <i class="fas fa-phone"></i> Get In Touch
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mission-vision" id="mission-vision">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our <span class="gradient-text">Purpose</span></h2>
+                    <p class="section-subtitle">At FitZone, we are dedicated to empowering a healthier, stronger Sri Lanka through fitness and community.</p>
+                </div>
+                <div class="mission-vision-grid">
+                    <article class="mission-card">
+                        <h3>Our Mission</h3>
+                        <p>"To empower individuals of all abilities in Sri Lanka by providing a welcoming, open, and high-quality gym environment. We are committed to promoting health, strength, and wellbeing through top-notch training facilities, professional guidance, and a community-based approach that inspires a lifelong passion for fitness."</p>
+                    </article>
+                    <article class="vision-card">
+                        <h3>Our Vision</h3>
+                        <p>"To be Sri Lanka's fitness destination of choice, empowering lives through a culture of wellness, innovative and inspiring. To create a healthier nation through world-class fitness programs, state-of-the-art equipment, and a network of support that inspires people to be their best."</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Choose <span class="gradient-text">FitZone</span>?</h2>
+                    <p class="section-subtitle">Experience a premium fitness environment designed to support your goals and elevate your journey.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-circle" aria-label="Checkmark"></i>
+                        </div>
+                        <h3>Spacious & Clean Environment</h3>
+                        <p>Our gym is well-maintained, air-conditioned, and designed for a comfortable and hygienic workout experience.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt" aria-label="Safety"></i>
+                        </div>
+                        <h3>Safe & Secure Facility</h3>
+                        <p>Equipped with first aid, CCTV surveillance, and locker facilities for a secure and worry-free workout experience.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-dumbbell" aria-label="Programs"></i>
+                        </div>
+                        <h3>Variety of Programs</h3>
+                        <p>From strength training and cardio workouts to yoga and nutrition counseling, we offer diverse programs for all levels.</p>
+                    </div>
+                </div>
+                <div class="features-icons">
+                    <div class="feature-item">
+                        <div class="icon">
+                            <i class="fas fa-wifi" aria-label="WiFi Access"></i>
+                        </div>
+                        <p>WiFi Access</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">
+                            <i class="fas fa-running" aria-label="Cardio Area"></i>
+                        </div>
+                        <p>Cardio Area</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">
+                            <i class="fas fa-first-aid" aria-label="First Aid"></i>
+                        </div>
+                        <p>First Aid</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">
+                            <i class="fas fa-lock" aria-label="Lockers"></i>
+                        </div>
+                        <p>Lockers</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">
+                            <i class="fas fa-chalkboard-teacher" aria-label="Expert Coaching"></i>
+                        </div>
+                        <p>Expert Coaching</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">
+                            <i class="fas fa-parking" aria-label="Vehicle Parking"></i>
+                        </div>
+                        <p>Vehicle Parking</p>
+                    </div>
+                </div>
+                <div class="features-cta">
+                    <a href="http://localhost/MyProject/LoginForm.html" class="btn btn-primary">Join Us Today</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <h3>Fit<span class="accent">Zone</span></h3>
+                        <p class="brand-tagline">Where Champions Are Made</p>
+                        <p class="brand-description">Transform your body, elevate your mind, and unleash your potential at FitZone - the ultimate destination for serious fitness enthusiasts.</p>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+94 77 123 4567</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>info@fitzone.lk</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Kurunegala, Sri Lanka</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="./Home.html">Home</a></li>
+                        <li><a href="./Program.html">Programs</a></li>
+                        <li><a href="./Membership.html">Membership</a></li>
+                        <li><a href="./Timetable.html">Timetable</a></li>
+                        <li><a href="./Trainers.html">Trainers</a></li>
+                        <li><a href="./Aboutus.html">About Us</a></li>
+                        <li><a href="http://localhost/MyProject/Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Programs</h4>
+                    <ul class="footer-links">
+                        <li><a href="./Program.html#fitness-program">Fitness Program</a></li>
+                        <li><a href="./Program.html#personalized-training">Personalized Training</a></li>
+                        <li><a href="./Program.html#group-classes">Group Classes</a></li>
+                        <li><a href="./Program.html#nutrition-counseling">Nutrition Counseling</a></li>
+                        <li><a href="./Program.html#cardio-yoga">Cardio & Yoga</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Opening Hours</h4>
+                    <div class="opening-hours">
+                        <div class="hours-item">
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">5:00 AM - 11:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Saturday</span>
+                            <span class="time">6:00 AM - 10:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Sunday</span>
+                            <span class="time">7:00 AM - 9:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-features">
+                <div class="feature-item">
+                    <div class="feature-icon1">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h5>Sanitized & Safe</h5>
+                        <p>Health protocols maintained</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon1">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h5>Certified Trainers</h5>
+                        <p>Expert fitness professionals</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon1">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h5>Premium Equipment</h5>
+                        <p>State-of-the-art machines</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon1">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h5>Flexible Hours</h5>
+                        <p>Extended daily access</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 FitZone Fitness Center. All Rights Reserved.</p>
+                    <div class="footer-legal">
+                        <a href="PrivacyPolicy.html">Privacy Policy</a>
+                        <span class="separator">|</span>
+                        <a href="TermsOfService.html">Terms of Service</a>
+                        <span class="separator">|</span>
+                        <a href="CookiePolicy.html">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script defer>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            body.classList.toggle('light-theme');
+            localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+        }
+
+        // Mobile Navigation
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navClose = document.getElementById('navClose');
+        const nav = document.getElementById('nav');
+
+        mobileToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+            mobileToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+        });
+
+        navClose.addEventListener('click', () => {
+            nav.classList.remove('active');
+            mobileToggle.classList.remove('active');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+        });
+
+        // Search Toggle
+        const searchToggle = document.getElementById('searchToggle');
+        const searchContainer = document.getElementById('searchContainer');
+
+        searchToggle.addEventListener('click', () => {
+            searchContainer.classList.toggle('active');
+            searchToggle.setAttribute('aria-expanded', searchContainer.classList.contains('active'));
+        });
+
+        // Search Function
+        function searchWebsite() {
+            let query = document.getElementById("searchInput").value.toLowerCase().trim();
+            let pages = {
+                "home": "./Home.html",
+                "programs": "./Program.html",
+                "membership": "./Membership.html",
+                "timetable": "./Timetable.html",
+                "trainers": "./Trainers.html",
+                "about": "#about",
+                "mission": "#mission-vision",
+                "vision": "#mission-vision",
+                "features": "#features",
+                "contact": "./Contact.html"
+            };
+            
+            for (let key in pages) {
+                if (query.includes(key)) {
+                    if (pages[key].startsWith('./')) {
+                        window.location.href = pages[key];
+                    } else {
+                        document.querySelector(pages[key])?.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                    return;
+                }
+            }
+            alert("No results found. Try searching for: about, mission, vision, or features.");
+        }
+
+        // Enter key search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchWebsite();
+            }
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, .mission-card, .vision-card, .feature-card, .feature-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
